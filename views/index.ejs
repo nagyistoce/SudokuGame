@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EXTREME SUDOKU!</title>
+	<link rel='stylesheet' href='/stylesheets/index.css' />
+	<script type="text/javascript" src="/javascripts/jquery-min.js"></script>
+	<script type="text/javascript" src="/javascripts/index.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	
+</head>
+
+<h1><span id = "p1">PLAYER</span></h1>
+<div class="board" id="board1" tabindex="-1">
+			<div class="section" id="section0">
+		<div class="square" id="square_0_0"><span></span></div><div class="square" id="square_0_1"><span></span></div><div class="square" id="square_0_2"><span></span></div><div class="square" id="square_1_0"><span></span></div><div class="square" id="square_1_1"><span></span></div><div class="square" id="square_1_2"><span></span></div><div class="square" id="square_2_0"><span></span></div><div class="square" id="square_2_1"><span></span></div><div class="square" id="square_2_2"><span></span></div>		</div>
+				<div class="section" id="section1">
+		<div class="square" id="square_0_3"><span></span></div><div class="square" id="square_0_4"><span></span></div><div class="square" id="square_0_5"><span></span></div><div class="square" id="square_1_3"><span></span></div><div class="square" id="square_1_4"><span></span></div><div class="square" id="square_1_5"><span></span></div><div class="square" id="square_2_3"><span></span></div><div class="square" id="square_2_4"><span></span></div><div class="square" id="square_2_5"><span></span></div>		</div>
+				<div class="section" id="section2">
+		<div class="square" id="square_0_6"><span></span></div><div class="square" id="square_0_7"><span></span></div><div class="square" id="square_0_8"><span></span></div><div class="square" id="square_1_6"><span></span></div><div class="square" id="square_1_7"><span></span></div><div class="square" id="square_1_8"><span></span></div><div class="square" id="square_2_6"><span></span></div><div class="square" id="square_2_7"><span></span></div><div class="square" id="square_2_8"><span></span></div>		</div>
+				<div class="section" id="section3">
+		<div class="square" id="square_3_0"><span></span></div><div class="square" id="square_3_1"><span></span></div><div class="square" id="square_3_2"><span></span></div><div class="square" id="square_4_0"><span></span></div><div class="square" id="square_4_1"><span></span></div><div class="square" id="square_4_2"><span></span></div><div class="square" id="square_5_0"><span></span></div><div class="square" id="square_5_1"><span></span></div><div class="square" id="square_5_2"><span></span></div>		</div>
+				<div class="section" id="section4">
+		<div class="square" id="square_3_3"><span></span></div><div class="square" id="square_3_4"><span></span></div><div class="square" id="square_3_5"><span></span></div><div class="square" id="square_4_3"><span></span></div><div class="square" id="square_4_4"><span></span></div><div class="square" id="square_4_5"><span></span></div><div class="square" id="square_5_3"><span></span></div><div class="square" id="square_5_4"><span></span></div><div class="square" id="square_5_5"><span></span></div>		</div>
+				<div class="section" id="section5">
+		<div class="square" id="square_3_6"><span></span></div><div class="square" id="square_3_7"><span></span></div><div class="square" id="square_3_8"><span></span></div><div class="square" id="square_4_6"><span></span></div><div class="square" id="square_4_7"><span></span></div><div class="square" id="square_4_8"><span></span></div><div class="square" id="square_5_6"><span></span></div><div class="square" id="square_5_7"><span></span></div><div class="square" id="square_5_8"><span></span></div>		</div>
+				<div class="section" id="section6">
+		<div class="square" id="square_6_0"><span></span></div><div class="square" id="square_6_1"><span></span></div><div class="square" id="square_6_2"><span></span></div><div class="square" id="square_7_0"><span></span></div><div class="square" id="square_7_1"><span></span></div><div class="square" id="square_7_2"><span></span></div><div class="square" id="square_8_0"><span></span></div><div class="square" id="square_8_1"><span></span></div><div class="square" id="square_8_2"><span></span></div>		</div>
+				<div class="section" id="section7">
+		<div class="square" id="square_6_3"><span></span></div><div class="square" id="square_6_4"><span></span></div><div class="square" id="square_6_5"><span></span></div><div class="square" id="square_7_3"><span></span></div><div class="square" id="square_7_4"><span></span></div><div class="square" id="square_7_5"><span></span></div><div class="square" id="square_8_3"><span></span></div><div class="square" id="square_8_4"><span></span></div><div class="square" id="square_8_5"><span></span></div>		</div>
+				<div class="section" id="section8">
+		<div class="square" id="square_6_6"><span></span></div><div class="square" id="square_6_7"><span></span></div><div class="square" id="square_6_8"><span></span></div><div class="square" id="square_7_6"><span></span></div><div class="square" id="square_7_7"><span></span></div><div class="square" id="square_7_8"><span></span></div><div class="square" id="square_8_6"><span></span></div><div class="square" id="square_8_7"><span></span></div><div class="square" id="square_8_8"><span></span></div>		</div>
+</div>
+
+	<div id = "numbers">
+			<span class="number" id="1">1</span>
+			<span class="number" id="2">2</span>
+			<span class="number" id="3">3</span>
+			<span class="number" id="4">4</span>
+			<span class="number" id="5">5</span>
+			<span class="number" id="6">6</span>
+			<span class="number" id="7">7</span>
+			<span class="number" id="8">8</span>
+			<span class="number" id="9">9</span>
+			SELECT A TARGET CELL AND PICK NUMBER<br>YOU CAN ALSO USE ARROW KEYS AND THE NUMBERS 1-9
+		</div>
+		
+			<h1><span id="submit">SUBMIT</span></h1>
+
+	
+<div class = "powerUps" id = "powerUps">
+<h1><span class="time" id="time">TIME:</span><span class = "timer" id="timer"></span></h1>
+
+<h1><span class="powerUp" id="delete">DELETE</span><span class = "count" id="deleteCount">3</span></h1>
+<h1><span class="powerUp" id="change">CHANGE</span><span class = "count" id="changeCount">3</span></h1>
+<h1><span class="powerUp" id="swap">SWAP</span><span class = "count" id="swapCount">3</span></h1>
+<h1><span class="powerUp" id="hint">HINT</span><span class = "count" id="hintCount">3</span></h1>
+</div>
+
+<h1><span id="p2">OPPONENT</span></h1>
+<div class="board" id="board2">
+			<div class="section" id="section0">
+		<div class="square" id="square_0_0"><span></span></div><div class="square" id="square_0_1"><span></span></div><div class="square" id="square_0_2"><span></span></div><div class="square" id="square_1_0"><span></span></div><div class="square" id="square_1_1"><span></span></div><div class="square" id="square_1_2"><span></span></div><div class="square" id="square_2_0"><span></span></div><div class="square" id="square_2_1"><span></span></div><div class="square" id="square_2_2"><span></span></div>		</div>
+				<div class="section" id="section1">
+		<div class="square" id="square_0_3"><span></span></div><div class="square" id="square_0_4"><span></span></div><div class="square" id="square_0_5"><span></span></div><div class="square" id="square_1_3"><span></span></div><div class="square" id="square_1_4"><span></span></div><div class="square" id="square_1_5"><span></span></div><div class="square" id="square_2_3"><span></span></div><div class="square" id="square_2_4"><span></span></div><div class="square" id="square_2_5"><span></span></div>		</div>
+				<div class="section" id="section2">
+		<div class="square" id="square_0_6"><span></span></div><div class="square" id="square_0_7"><span></span></div><div class="square" id="square_0_8"><span></span></div><div class="square" id="square_1_6"><span></span></div><div class="square" id="square_1_7"><span></span></div><div class="square" id="square_1_8"><span></span></div><div class="square" id="square_2_6"><span></span></div><div class="square" id="square_2_7"><span></span></div><div class="square" id="square_2_8"><span></span></div>		</div>
+				<div class="section" id="section3">
+		<div class="square" id="square_3_0"><span></span></div><div class="square" id="square_3_1"><span></span></div><div class="square" id="square_3_2"><span></span></div><div class="square" id="square_4_0"><span></span></div><div class="square" id="square_4_1"><span></span></div><div class="square" id="square_4_2"><span></span></div><div class="square" id="square_5_0"><span></span></div><div class="square" id="square_5_1"><span></span></div><div class="square" id="square_5_2"><span></span></div>		</div>
+				<div class="section" id="section4">
+		<div class="square" id="square_3_3"><span></span></div><div class="square" id="square_3_4"><span></span></div><div class="square" id="square_3_5"><span></span></div><div class="square" id="square_4_3"><span></span></div><div class="square" id="square_4_4"><span></span></div><div class="square" id="square_4_5"><span></span></div><div class="square" id="square_5_3"><span></span></div><div class="square" id="square_5_4"><span></span></div><div class="square" id="square_5_5"><span></span></div>		</div>
+				<div class="section" id="section5">
+		<div class="square" id="square_3_6"><span></span></div><div class="square" id="square_3_7"><span></span></div><div class="square" id="square_3_8"><span></span></div><div class="square" id="square_4_6"><span></span></div><div class="square" id="square_4_7"><span></span></div><div class="square" id="square_4_8"><span></span></div><div class="square" id="square_5_6"><span></span></div><div class="square" id="square_5_7"><span></span></div><div class="square" id="square_5_8"><span></span></div>		</div>
+				<div class="section" id="section6">
+		<div class="square" id="square_6_0"><span></span></div><div class="square" id="square_6_1"><span></span></div><div class="square" id="square_6_2"><span></span></div><div class="square" id="square_7_0"><span></span></div><div class="square" id="square_7_1"><span></span></div><div class="square" id="square_7_2"><span></span></div><div class="square" id="square_8_0"><span></span></div><div class="square" id="square_8_1"><span></span></div><div class="square" id="square_8_2"><span></span></div>		</div>
+				<div class="section" id="section7">
+		<div class="square" id="square_6_3"><span></span></div><div class="square" id="square_6_4"><span></span></div><div class="square" id="square_6_5"><span></span></div><div class="square" id="square_7_3"><span></span></div><div class="square" id="square_7_4"><span></span></div><div class="square" id="square_7_5"><span></span></div><div class="square" id="square_8_3"><span></span></div><div class="square" id="square_8_4"><span></span></div><div class="square" id="square_8_5"><span></span></div>		</div>
+				<div class="section" id="section8">
+		<div class="square" id="square_6_6"><span></span></div><div class="square" id="square_6_7"><span></span></div><div class="square" id="square_6_8"><span></span></div><div class="square" id="square_7_6"><span></span></div><div class="square" id="square_7_7"><span></span></div><div class="square" id="square_7_8"><span></span></div><div class="square" id="square_8_6"><span></span></div><div class="square" id="square_8_7"><span></span></div><div class="square" id="square_8_8"><span></span></div>		</div>
+		<center>SELECT AN ATTACK CELL AND PICK A POWERUP</center>
+</div>
+
+
+<textarea disabled="true" id = "chatbox"></textarea>
+<input type="text" id = "chat"></input>
